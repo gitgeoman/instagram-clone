@@ -12,3 +12,9 @@
   object-fit: contain;
   padding:20px;
 }
+
+.app__signup{
+  display:flex;
+  flex-direction: column;
+
+}

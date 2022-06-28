@@ -1,4 +1,6 @@
 import { initializeApp } from "firebase/app";
+// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
 import {
   getFirestore,
   collection,
@@ -19,7 +21,7 @@ const firebaseConfig = {
   appId: "1:655924564819:web:a9d6b98756803e1aa407a6",
   measurementId: "G-YL6DZ4NCVG",
 };
-
+// const auth = getAuth();
 const app = initializeApp(firebaseConfig);
 
 export default getFirestore();
