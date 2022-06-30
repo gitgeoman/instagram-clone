@@ -13,6 +13,7 @@ import {
   updateProfile,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import ImageUpload from "./ImageUpload";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -21,7 +22,6 @@ function App() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [user, setUser] = useState(null);
 
   const auth = getAuth();
@@ -103,6 +103,10 @@ function App() {
 
   return (
     <div className="app">
+      <ImageUpload />
+      {/* file picker */}
+      {/* post button */}
+
       <Modal
         open={open}
         onClose={() => setOpen(false)}
