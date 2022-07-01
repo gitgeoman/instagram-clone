@@ -103,10 +103,11 @@ function App() {
 
   return (
     <div className="app">
-      <ImageUpload />
-      {/* file picker */}
-      {/* post button */}
-
+      {user ? (
+        <ImageUpload username={user.displayName} />
+      ) : (
+        <h3>Sorry you need to login to upload</h3>
+      )}
       <Modal
         open={open}
         onClose={() => setOpen(false)}
