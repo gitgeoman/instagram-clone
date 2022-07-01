@@ -2,7 +2,8 @@ import { Button } from "@mui/material";
 import React, { useState } from "react";
 import "./ImageUpload.css";
 import { storage } from "./firebase";
-import { ref } from "firebase/storage";
+import { ref, uploadBytes } from "firebase/storage";
+import { v4 } from "uuid";
 
 function ImageUpload() {
   const [caption, setCaption] = useState("");
@@ -17,7 +18,10 @@ function ImageUpload() {
 
   const handleUpload = () => {
     if (image == null) return;
-    const imageRef = ref(storage, `images/${image.name}`);
+    const imageRef = ref(storage, `images/${image.name + v4()}`);
+    uploadBytes(imageRef, image).then((snapshot) => {
+      console.log(snapshot);
+    });
   };
 
   return (
