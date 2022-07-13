@@ -47,7 +47,7 @@ function ImageUpload() {
       (snapshot) => {
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log("upload is " + progress + "%done");
+        console.log("upload is " + progress + "% done");
         switch (snapshot.state) {
           case "paused":
             console.log();
@@ -57,15 +57,10 @@ function ImageUpload() {
             break;
         }
       },
-      (error) => {
-        // Handle unsuccessful uploads
-      },
+      (error) => {},
       () => {
-        // Handle successful uploads on complete
-        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log("File available at", downloadURL);
-          // writeData("some random text", `${downloadURL}`, "marek");
         });
       }
     );
